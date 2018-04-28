@@ -4,7 +4,10 @@
   "private": true,
   "dependencies": {
     "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
     "express": "^4.16.3",
+    "hoek": "^5.0.3",
+    "isomorphic-fetch": "^2.2.1",
     "mongoose": "^5.0.14",
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
@@ -14,6 +17,10 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "startBack": "node server/server.js"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.3"
   }
 }
