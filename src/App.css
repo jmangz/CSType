@@ -1,28 +1,156 @@
-.App {
-  text-align: center;
+.box {
+  /* opacity: 0; */
+  background-color: orange;
+  /* border: 1px solid black; */
+  display: inline-block;
+  height: 50%;
+  width: 33%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
+#players {
   color: white;
 }
 
-.App-title {
-  font-size: 1.5em;
+#leaderboard {
+  color: white;
+  font-size: 30px;
+  position: absolute;
+  width: 60%;
+  top: 0%;
+  left: 70%;
+  font-family: system-ui;
+  /* transform: translate(-50%, -50%); */
+}
+#word {
+  text-align: center;
+  padding: 115px 0;
+  font-size: 4rem;
+  font-family: system-ui;
+  color: white;
 }
 
-.App-intro {
-  font-size: large;
+.onBtn {
+  background-color: orange;
+  border: 5px solid white;
+  color: white;
+  font-size: 30px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.offBtn {
+  visibility: hidden;
+}
+
+#newGameBtn {
+  background-color: orange;
+  border: 5px solid white;
+  color: white;
+  font-size: 30px;
+  position: absolute;
+  width: 60%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#inputBox {
+  /* opacity: 0; */
+  color: white;
+  background-color: orange;
+  font-size: 4rem;
+  text-align: center;
+  border: none;
+  display: inline-block;
+  height: 70px;
+  width: 33%;
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* border: 1px solid black; */
+}
+
+.nameInput {
+  background-color: orange;
+  border-style: none;
+  color: white;
+  font-size: 2rem;
+  font-family: system-ui;
+}
+#inputBoxOff {
+  visibility: hidden;
+}
+input:focus {
+  outline: none;
+}
+#score {
+  font-size: 5rem;
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-family: system-ui;
+}
+
+.hide {
+  visibility: hidden;
+}
+
+#scoreOff {
+  visibility: hidden;
+}
+
+.submitButton {
+  background-color: orange;
+  border: 5px solid white;
+  color: white;
+  font-size: 30px;
+}
+#streak {
+  font-size: 4rem;
+  display: inline-block;
+  position: absolute;
+  top: 40%;
+  left: 10%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-family: system-ui;
+}
+
+#streakOff {
+  visibility: hidden;
+}
+
+#endGameScore {
+  color: white;
+  font-size: 2rem;
+  position: absolute;
+  /* text-align: center; */
+  top: 25%;
+  left: 50%;
+  font-family: system-ui;
+  transform: translate(-50%, -50%);
+}
+#timer {
+  font-family: system-ui;
+  font-size: 5rem;
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 90%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+#timerOff {
+  visibility: hidden;
 }
