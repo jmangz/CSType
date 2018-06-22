@@ -9,7 +9,7 @@ class App extends Component {
     super(props);
     this.state = {
       score: 0,
-      timer: 1,
+      timer: 10,
       wordList: [],
       active: '',
       text: '',
@@ -32,6 +32,9 @@ class App extends Component {
     this.timer = this.timer.bind(this);
     this.addName = this.addName.bind(this);
     this.restartGame = this.restartGame.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.checkWord = this.checkWord.bind(this);
+    this.keyPress = this.keyPress.bind(this);
   }
 
   componentDidMount() {
@@ -43,6 +46,7 @@ class App extends Component {
           const obj = {};
           obj.name = player.name;
           obj.score = player.score;
+          obj._id = player._id;
           return obj;
         });
         this.setState({
@@ -73,15 +77,17 @@ class App extends Component {
       .then(response => response.json())
       .then((data) => {
         const playersList = data.map((player) => {
-          console.log('XD');
+          // console.log(player);
           const obj = {};
           obj.name = player.name;
           obj.score = player.score;
+          obj._id = player._id;
           return obj;
         });
         this.setState({
           players: playersList,
         });
+        return playersList;
       });
   }
 
@@ -118,6 +124,19 @@ class App extends Component {
     });
   }
 
+  deleteSixth() {
+    const players = this.state.players.sort((a, b) => b.score - a.score);
+    const id = players[5]._id;
+    console.log(players, id);
+    fetch('http://localhost:4000/sixthPlace', {
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        id,
+      }),
+    });
+  }
+
   handleClick() {
     this.setState({
       submit: false,
@@ -129,6 +148,9 @@ class App extends Component {
         name: this.state.name,
         score: this.state.score,
       }),
+    }).then(() => {
+      this.getPlayers();
+      if (this.state.players.length > 5) this.deleteSixth();
     });
   }
 
@@ -169,6 +191,7 @@ class App extends Component {
           const obj = {};
           obj.name = player.name;
           obj.score = player.score;
+          obj._id = player._id;
           return obj;
         });
         this.setState({
@@ -189,9 +212,8 @@ class App extends Component {
     });
 
     for (let i = 0; i < this.state.players.length && i < 5; i += 1) {
-      const leaderboardName = this.state.players[i].name;
-      const leaderboardScore = this.state.players[i].score;
-      players.push(<li key={i}>{leaderboardName} Score: {leaderboardScore}</li>);
+      const { name, score, _id } = this.state.players[i];
+      players.push(<li key={_id}>{name} Score: {score}</li>);
     }
 
     return (

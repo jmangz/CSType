@@ -17,11 +17,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(express.static('../build'));
 
-app.post('/', leaderboardController.createLeaderboard);
+app.post('/', leaderboardController.addPlayer);
 
 app.get('/', leaderboardController.getAll);
 
 app.delete('/', leaderboardController.deleteLeaderboard);
+
+app.delete('/sixthPlace', leaderboardController.deleteSixth);
 
 app.listen(PORT, () => console.log(`Listening on PORT: ${PORT}`));
 
