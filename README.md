@@ -1,5 +1,5 @@
 ## Typing Game
-Typing game created for Codesmith solo project.
+Typing game.
 
 ## Rules
 - Type words correctly.
