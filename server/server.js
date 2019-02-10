@@ -25,6 +25,6 @@ app.delete('/', leaderboardController.deleteLeaderboard);
 
 app.delete('/sixthPlace', leaderboardController.deleteSixth);
 
-app.listen(PORT, () => console.log(`Listening on PORT: ${PORT}`));
+app.listen(process.env.PORT || PORT, () => console.log(`Listening on PORT: ${process.env.PORT || PORT}`));
 
 module.exports = app;
