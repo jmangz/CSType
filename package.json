@@ -4,7 +4,9 @@
   "description": "Typing game.",
   "main": ".eslintrc.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --mode production",
+    "start": "concurrently \"cd server && node server.js\" \"npm start\""
   },
   "repository": {
     "type": "git",
@@ -19,6 +21,8 @@
   "homepage": "https://github.com/jmangz/cs-solo-project#readme",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "concurrently": "^4.1.0",
+    "cors": "^2.8.5",
     "express": "^4.16.4",
     "mongoose": "^5.4.11",
     "react": "^16.8.1",
@@ -30,6 +34,7 @@
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.5",
     "css-loader": "^2.1.0",
+    "file-loader": "^3.0.1",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
     "style-loader": "^0.23.1",
