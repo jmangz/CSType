@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import './App.css';
 import Board from './Board';
-import sad from './sad.mp3';
-import soundFile from './pickup.wav';
+// import sad from './sad.mp3';
+// import happy from './pickup.wav';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       score: 0,
-      timer: 60,
+      timer: 5,
       wordList: [],
       active: '',
       text: '',
@@ -23,8 +23,8 @@ class App extends Component {
       submit: true,
     };
     this.baseState = this.state;
-    this.sound = new Audio(soundFile);
-    this.wrongSound = new Audio(sad);
+    this.happy = new Audio('./src/pickup.wav');
+    // this.wrongSound = new Audio(sad);
     this.interval = null;
     this.handleClick = this.handleClick.bind(this);
     this.getWords = this.getWords.bind(this);
@@ -77,7 +77,6 @@ class App extends Component {
       .then(response => response.json())
       .then((data) => {
         const playersList = data.map((player) => {
-          // console.log(player);
           const obj = {};
           obj.name = player.name;
           obj.score = player.score;
@@ -157,7 +156,7 @@ class App extends Component {
   checkWord(input) {
     if (this.state.active === input) {
       this.newWord();
-      this.sound.play();
+      this.happy.play();
       const newStreak = this.state.streak + 1;
       const newScore = this.state.score + 1;
       this.setState({
