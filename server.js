@@ -2,15 +2,18 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const path = require('path');
 const leaderboardController = require('./controllers/leaderboardController');
 
 const app = express();
-const PORT = 4000;
+const PORT = process.env.PORT || 4000;
 
 mongoose.connect('mongodb://demon:codesmith@ds141889.mlab.com:41889/leaderboards', { useNewUrlParser: true });
 mongoose.connection.once('open', () => console.log('Connected to Database'));
 
 app.use(cors());
+app.use(express.static(path.join(__dirname, 'client', 'dist')));
+app.use(require('dotenv').config());
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -25,6 +28,10 @@ app.delete('/', leaderboardController.deleteLeaderboard);
 
 app.delete('/sixthPlace', leaderboardController.deleteSixth);
 
-app.listen(process.env.PORT || PORT, () => console.log(`Listening on PORT: ${process.env.PORT || PORT}`));
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'));
+});
+
+app.listen(PORT, () => console.log(`Listening on PORT: ${process.env.PORT || PORT}`));
 
 module.exports = app;
