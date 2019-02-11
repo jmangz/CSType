@@ -135,17 +135,6 @@ class App extends Component {
     await this.getPlayers();
     console.log(this.state.players.length);
     if (this.state.players.length > 5) this.deleteSixth();
-    // fetch('http://localhost:4000/', {
-    //   method: 'POST',
-    //   headers: { 'Content-Type': 'application/json' },
-    //   body: JSON.stringify({
-    //     name: this.state.name,
-    //     score: this.state.score,
-    //   }),
-    // }).then(() => {
-    //   this.getPlayers();
-    //   if (this.state.players.length > 5) this.deleteSixth();
-    // });
   }
 
   checkWord(input) {
