@@ -1,10 +1,13 @@
 .box {
-  display: inline-block;
-  height: 50%;
-  width: 33%;
   position: absolute;
   top: 50%;
   left: 50%;
+
+  display: inline-block;
+
+  width: 33%;
+  height: 50%;
+
   transform: translate(-50%, -50%);
 }
 
@@ -13,31 +16,40 @@
 }
 
 #leaderboard {
-  color: white;
-  font-size: 30px;
   position: absolute;
-  width: 60%;
   top: 0%;
   left: 70%;
+
+  width: 60%;
+
+  color: white;
+
   font-family: system-ui;
+  font-size: 30px;
 }
 #word {
-  text-align: center;
   padding: 115px 0;
-  font-size: 4rem;
-  font-family: system-ui;
+
+  text-align: center;
+
   color: white;
+
+  font-family: system-ui;
+  font-size: 4rem;
 }
 
 .onBtn {
-  background-color: orange;
-  border: 5px solid white;
-  color: white;
-  font-size: 30px;
   position: absolute;
   top: 50%;
   left: 50%;
+
   transform: translate(-50%, -50%);
+
+  color: white;
+  border: 5px solid white;
+  background-color: orange;
+
+  font-size: 30px;
 }
 
 .offBtn {
@@ -45,38 +57,48 @@
 }
 
 #newGameBtn {
-  background-color: orange;
-  border: 5px solid white;
-  color: white;
-  font-size: 30px;
   position: absolute;
-  width: 60%;
   top: 50%;
   left: 50%;
+
+  width: 60%;
+
   transform: translate(-50%, -50%);
+
+  color: white;
+  border: 5px solid white;
+  background-color: orange;
+
+  font-size: 30px;
 }
 
 #inputBox {
-  color: white;
-  background-color: orange;
-  font-size: 4rem;
-  text-align: center;
-  border: none;
-  display: inline-block;
-  height: 70px;
-  width: 33%;
   position: absolute;
   top: 90%;
   left: 50%;
+
+  display: inline-block;
+
+  width: 33%;
+  height: 70px;
+
   transform: translate(-50%, -50%);
+  text-align: center;
+
+  color: white;
+  border: none;
+  background-color: orange;
+
+  font-size: 4rem;
 }
 
 .nameInput {
-  background-color: orange;
-  border-style: none;
   color: white;
-  font-size: 2rem;
+  border-style: none;
+  background-color: orange;
+
   font-family: system-ui;
+  font-size: 2rem;
 }
 #inputBoxOff {
   visibility: hidden;
@@ -85,14 +107,18 @@ input:focus {
   outline: none;
 }
 #score {
-  font-size: 5rem;
-  display: inline-block;
   position: absolute;
   top: 50%;
   left: 10%;
+
+  display: inline-block;
+
   transform: translate(-50%, -50%);
+
   color: white;
+
   font-family: system-ui;
+  font-size: 5rem;
 }
 
 .hide {
@@ -104,20 +130,25 @@ input:focus {
 }
 
 .submitButton {
-  background-color: orange;
-  border: 5px solid white;
   color: white;
+  border: 5px solid white;
+  background-color: orange;
+
   font-size: 30px;
 }
 #streak {
-  font-size: 4rem;
-  display: inline-block;
   position: absolute;
   top: 40%;
   left: 10%;
+
+  display: inline-block;
+
   transform: translate(-50%, -50%);
+
   color: white;
+
   font-family: system-ui;
+  font-size: 4rem;
 }
 
 #streakOff {
@@ -125,23 +156,30 @@ input:focus {
 }
 
 #endGameScore {
-  color: white;
-  font-size: 2rem;
   position: absolute;
   top: 25%;
   left: 50%;
-  font-family: system-ui;
+
   transform: translate(-50%, -50%);
+
+  color: white;
+
+  font-family: system-ui;
+  font-size: 2rem;
 }
 #timer {
-  font-family: system-ui;
-  font-size: 5rem;
-  display: inline-block;
   position: absolute;
   top: 50%;
   left: 90%;
+
+  display: inline-block;
+
   transform: translate(-50%, -50%);
+
   color: white;
+
+  font-family: system-ui;
+  font-size: 5rem;
 }
 
 #timerOff {
