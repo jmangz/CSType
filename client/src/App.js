@@ -167,20 +167,7 @@ class App extends Component {
       this.baseState,
       { wordList: this.getWords() },
     ));
-    fetch('http://localhost:4000/')
-      .then(response => response.json())
-      .then((data) => {
-        const playersList = data.map((player) => {
-          const obj = {};
-          obj.name = player.name;
-          obj.score = player.score;
-          obj._id = player._id;
-          return obj;
-        });
-        this.setState({
-          players: playersList,
-        });
-      });
+    this.getPlayers();
   }
 
   render() {
