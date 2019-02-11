@@ -17,15 +17,15 @@ app.use(express.static(path.join(__dirname, 'client', 'dist')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(express.static('../build'));
+// app.use(express.static('../build'));
 
-app.post('/', leaderboardController.addPlayer);
+app.post('/api', leaderboardController.addPlayer);
 
-app.get('/', leaderboardController.getAll);
+app.get('/api', leaderboardController.getAll);
 
-app.delete('/', leaderboardController.deleteLeaderboard);
+app.delete('/api', leaderboardController.deleteLeaderboard);
 
-app.delete('/sixthPlace', leaderboardController.deleteSixth);
+app.delete('/api/sixthPlace', leaderboardController.deleteSixth);
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'));
@@ -33,4 +33,4 @@ app.get('*', (req, res) => {
 
 app.listen(PORT, () => console.log(`Listening on PORT: ${PORT}`));
 
-module.exports = app;
+// module.exports = app;

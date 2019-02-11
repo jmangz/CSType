@@ -63,7 +63,7 @@ class App extends Component {
   async getPlayers() {
     try {
       this.setState({ wordList: this.getWords() });
-      const { data } = (await axios.get('http://localhost:4000/'));
+      const { data } = (await axios.get('http://localhost:4000/api'));
       const playersList = data.map((player) => {
         const obj = {};
         obj.name = player.name;
@@ -119,7 +119,7 @@ class App extends Component {
       name,
       score,
     } = players[5];
-    axios.delete('http://localhost:4000/sixthPlace', {
+    axios.delete('http://localhost:4000/api/sixthPlace', {
       data: {
         _id,
         name,
@@ -133,7 +133,7 @@ class App extends Component {
       this.setState({
         submit: false,
       });
-      await axios.post('http://localhost:4000/', {
+      await axios.post('http://localhost:4000/api', {
         name: this.state.name,
         score: this.state.score,
       });
