@@ -16,7 +16,7 @@ const leaderboardController = {
   },
 
   deleteLeaderboard: (req, res) => {
-    Leaderboard.remove({}, (err, result) => {
+    Leaderboard.deleteMany({}, (err, result) => {
       if (err) return res.status(418).send(err);
       return res.json({ removed: 'success' });
     });
@@ -25,7 +25,7 @@ const leaderboardController = {
   deleteSixth: (req, res) => {
     const { id } = req.body;
     console.log(id, req.body);
-    Leaderboard.findByIdAndRemove(id, (err, result) => {
+    Leaderboard.findOneAndDelete(id, (err, result) => {
       if (err) return res.status(418).json(err);
       console.log('nicee');
       return res.json(result);
