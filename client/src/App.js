@@ -43,11 +43,12 @@ class App extends Component {
   }
 
   onButtonClick() {
+    const active = this.state.wordList[Math.floor(Math.random() * this.state.wordList.length)];
     this.setState({
       startGame: true,
       onGoing: true,
       startBtn: false,
-      active: this.state.wordList[Math.floor(Math.random() * this.state.wordList.length)],
+      active,
     });
     this.interval = setInterval(this.timer, 1000);
   }
