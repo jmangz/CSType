@@ -31,6 +31,6 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'));
 });
 
-app.listen(PORT, () => console.log(`Listening on PORT: ${process.env.PORT || PORT}`));
+app.listen(PORT, () => console.log(`Listening on PORT: ${PORT}`));
 
 module.exports = app;
