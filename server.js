@@ -8,7 +8,7 @@ const leaderboardController = require('./controllers/leaderboardController');
 const app = express();
 const PORT = process.env.PORT || 4000;
 
-mongoose.connect('mongodb://demon:codesmith@ds141889.mlab.com:41889/leaderboards', { useNewUrlParser: true });
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true });
 mongoose.connection.once('open', () => console.log('Connected to Database'));
 
 app.use(cors());
