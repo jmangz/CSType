@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
 import Board from './Board';
-// import sad from './sad.mp3';
-// import happy from './pickup.wav';
 
 class App extends Component {
   constructor(props) {
@@ -24,7 +22,7 @@ class App extends Component {
     };
     this.baseState = this.state;
     this.happy = new Audio('./src/pickup.wav');
-    // this.wrongSound = new Audio(sad);
+    this.sad = new Audio('./src/sad.mp3');
     this.interval = null;
     this.handleClick = this.handleClick.bind(this);
     this.getWords = this.getWords.bind(this);
@@ -165,7 +163,7 @@ class App extends Component {
         streak: newStreak,
       });
     } else {
-      this.wrongSound.play();
+      this.sad.play();
       this.setState({
         streak: 0,
       });
