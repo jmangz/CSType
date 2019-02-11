@@ -223,7 +223,7 @@ class App extends Component {
             <div id={this.state.onGoing ? 'timer' : 'timerOff'}>{this.state.timer}</div>
             <div id={this.state.onGoing ? 'streak' : 'streakOff'}>Streak: {this.state.streak}</div>
             <div id={!this.state.onGoing && this.state.gameOver ? 'leaderboard' : 'streakOff'}>
-              <p style={{ fontSize: '3rem', fontWeight: 'bold' }}>Leaderboards</p>
+              <p style={{ fontSize: '3rem', fontWeight: 'bold' }}>Leaderboard</p>
               <ol>{players}</ol>
             </div>
             <input
