@@ -27,6 +27,7 @@
   font-family: system-ui;
   font-size: 30px;
 }
+
 #word {
   padding: 115px 0;
 
@@ -100,12 +101,15 @@
   font-family: system-ui;
   font-size: 2rem;
 }
+
 #inputBoxOff {
   visibility: hidden;
 }
+
 input:focus {
   outline: none;
 }
+
 #score {
   position: absolute;
   top: 50%;
