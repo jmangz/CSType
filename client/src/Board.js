@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Board = ({
   submit, click, addName, name, score, word, onGoing, reset,
@@ -23,6 +24,17 @@ const Board = ({
       {insideBox}
     </div>
   );
+};
+
+Board.propTypes = {
+  submit: PropTypes.bool.isRequired,
+  click: PropTypes.func.isRequired,
+  addName: PropTypes.func.isRequired,
+  name: PropTypes.string.isRequired,
+  score: PropTypes.number.isRequired,
+  word: PropTypes.string.isRequired,
+  onGoing: PropTypes.bool.isRequired,
+  reset: PropTypes.func.isRequired,
 };
 
 export default Board;
