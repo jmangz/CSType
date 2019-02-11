@@ -114,12 +114,19 @@ class App extends Component {
   }
 
   deleteSixth() {
-    const players = this.state.players.sort((a, b) => b.score - a.score);
-    const id = players[5]._id;
-    console.log(id);
+    const players = this.state.players.slice().sort((a, b) => b.score - a.score);
+    console.log(players, 'yo', players[5]);
+    const {
+      _id,
+      name,
+      score,
+    } = players[5];
+    console.log(_id);
     axios.delete('http://localhost:4000/sixthPlace', {
       data: {
-        id,
+        _id,
+        name,
+        score,
       },
     });
   }
@@ -173,7 +180,14 @@ class App extends Component {
 
   render() {
     const players = [];
-    this.state.players.sort((a, b) => b.score - a.score);
+    this.state.players.sort((a, b) => {
+      if (a.score - b.score > 0) {
+        return -1;
+      } else if (a.score - b.score < 0) {
+        return 1;
+      }
+      return 0;
+    });
 
     for (let i = 0; i < this.state.players.length && i < 5; i += 1) {
       const { name, score, _id } = this.state.players[i];
