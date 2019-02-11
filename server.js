@@ -13,7 +13,6 @@ mongoose.connection.once('open', () => console.log('Connected to Database'));
 
 app.use(cors());
 app.use(express.static(path.join(__dirname, 'client', 'dist')));
-app.use(require('dotenv').config());
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
