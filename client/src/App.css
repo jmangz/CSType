@@ -88,14 +88,17 @@
 
   color: white;
   border: none;
+  border-bottom: 2px solid white;
   background-color: orange;
 
   font-size: 4rem;
 }
 
 .nameInput {
+  margin-right: 1rem;
+
   color: white;
-  border-style: none;
+  border: 2px solid white;
   background-color: orange;
 
   font-family: system-ui;
@@ -140,6 +143,7 @@ input:focus {
 
   font-size: 30px;
 }
+
 #streak {
   position: absolute;
   top: 40%;
@@ -171,6 +175,7 @@ input:focus {
   font-family: system-ui;
   font-size: 2rem;
 }
+
 #timer {
   position: absolute;
   top: 50%;
