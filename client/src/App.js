@@ -132,16 +132,20 @@ class App extends Component {
   }
 
   async handleClick() {
-    this.setState({
-      submit: false,
-    });
-    await axios.post('http://localhost:4000/', {
-      name: this.state.name,
-      score: this.state.score,
-    });
-    await this.getPlayers();
-    console.log(this.state.players.length);
-    if (this.state.players.length > 5) this.deleteSixth();
+    try {
+      this.setState({
+        submit: false,
+      });
+      await axios.post('http://localhost:4000/', {
+        name: this.state.name,
+        score: this.state.score,
+      });
+      await this.getPlayers();
+      console.log(this.state.players.length);
+      if (this.state.players.length > 5) this.deleteSixth();
+    } catch (error) {
+      return console.error(error);
+    }
   }
 
   checkWord(input) {
