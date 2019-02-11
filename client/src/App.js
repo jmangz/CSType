@@ -8,7 +8,7 @@ class App extends Component {
     super(props);
     this.state = {
       score: 0,
-      timer: 5,
+      timer: 60,
       wordList: [],
       active: '',
       text: '',
