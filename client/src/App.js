@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import './App.css';
 import Board from './Board';
 
@@ -36,21 +37,9 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.setState({ wordList: this.getWords() });
-    fetch('http://localhost:4000/')
-      .then(response => response.json())
-      .then((data) => {
-        const playersList = data.map((player) => {
-          const obj = {};
-          obj.name = player.name;
-          obj.score = player.score;
-          obj._id = player._id;
-          return obj;
-        });
-        this.setState({
-          players: playersList,
-        });
-      });
+    const wordList = this.getWords();
+    this.setState({ wordList });
+    this.getPlayers();
   }
 
   onButtonClick() {
@@ -70,22 +59,24 @@ class App extends Component {
       'scope', 'quality assurance', 'hack hour', 'pa$$word', 'git commit -m "xD"', 'pull request', 'fellow', 'i don\'t know what i\'m doing'];
   }
 
-  getPlayers() {
-    fetch('http://localhost:4000/')
-      .then(response => response.json())
-      .then((data) => {
-        const playersList = data.map((player) => {
-          const obj = {};
-          obj.name = player.name;
-          obj.score = player.score;
-          obj._id = player._id;
-          return obj;
-        });
-        this.setState({
-          players: playersList,
-        });
-        return playersList;
+  async getPlayers() {
+    try {
+      this.setState({ wordList: this.getWords() });
+      const { data } = (await axios.get('http://localhost:4000/'));
+      console.log(data);
+      const playersList = data.map((player) => {
+        const obj = {};
+        obj.name = player.name;
+        obj.score = player.score;
+        obj._id = player._id;
+        return obj;
       });
+      this.setState({
+        players: playersList,
+      });
+    } catch (error) {
+      return console.error(error);
+    }
   }
 
   handleChange(e) {
