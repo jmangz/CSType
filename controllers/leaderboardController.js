@@ -24,10 +24,8 @@ const leaderboardController = {
 
   deleteSixth: (req, res) => {
     const { _id } = req.body;
-    console.log(_id, req.body, req.body._id, 'wtf');
     Leaderboard.findOneAndDelete({ _id }, (err, result) => {
       if (err) return res.status(418).json(err);
-      console.log('nicee', result);
       return res.json(result);
     });
   },
