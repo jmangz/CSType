@@ -163,23 +163,17 @@ class App extends Component {
   }
 
   restartGame() {
+    const wordList = this.getWords();
     this.setState(Object.assign(
       this.baseState,
-      { wordList: this.getWords() },
+      { wordList },
     ));
     this.getPlayers();
   }
 
   render() {
     const players = [];
-    this.state.players.sort((a, b) => {
-      if (a.score - b.score > 0) {
-        return -1;
-      } else if (a.score - b.score < 0) {
-        return 1;
-      }
-      return 0;
-    });
+    this.state.players.sort((a, b) => b.score - a.score);
 
     for (let i = 0; i < this.state.players.length && i < 5; i += 1) {
       const { name, score, _id } = this.state.players[i];
