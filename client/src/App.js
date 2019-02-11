@@ -116,31 +116,36 @@ class App extends Component {
   deleteSixth() {
     const players = this.state.players.sort((a, b) => b.score - a.score);
     const id = players[5]._id;
-    console.log(players, id);
-    fetch('http://localhost:4000/sixthPlace', {
-      method: 'DELETE',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
+    console.log(id);
+    axios.delete('http://localhost:4000/sixthPlace', {
+      data: {
         id,
-      }),
+      },
     });
   }
 
-  handleClick() {
+  async handleClick() {
     this.setState({
       submit: false,
     });
-    fetch('http://localhost:4000/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        name: this.state.name,
-        score: this.state.score,
-      }),
-    }).then(() => {
-      this.getPlayers();
-      if (this.state.players.length > 5) this.deleteSixth();
+    await axios.post('http://localhost:4000/', {
+      name: this.state.name,
+      score: this.state.score,
     });
+    await this.getPlayers();
+    console.log(this.state.players.length);
+    if (this.state.players.length > 5) this.deleteSixth();
+    // fetch('http://localhost:4000/', {
+    //   method: 'POST',
+    //   headers: { 'Content-Type': 'application/json' },
+    //   body: JSON.stringify({
+    //     name: this.state.name,
+    //     score: this.state.score,
+    //   }),
+    // }).then(() => {
+    //   this.getPlayers();
+    //   if (this.state.players.length > 5) this.deleteSixth();
+    // });
   }
 
   checkWord(input) {
