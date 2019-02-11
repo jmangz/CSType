@@ -64,7 +64,6 @@ class App extends Component {
     try {
       this.setState({ wordList: this.getWords() });
       const { data } = (await axios.get('http://localhost:4000/'));
-      console.log(data);
       const playersList = data.map((player) => {
         const obj = {};
         obj.name = player.name;
@@ -115,13 +114,11 @@ class App extends Component {
 
   deleteSixth() {
     const players = this.state.players.slice().sort((a, b) => b.score - a.score);
-    console.log(players, 'yo', players[5]);
     const {
       _id,
       name,
       score,
     } = players[5];
-    console.log(_id);
     axios.delete('http://localhost:4000/sixthPlace', {
       data: {
         _id,
@@ -141,7 +138,6 @@ class App extends Component {
         score: this.state.score,
       });
       await this.getPlayers();
-      console.log(this.state.players.length);
       if (this.state.players.length > 5) this.deleteSixth();
     } catch (error) {
       return console.error(error);
