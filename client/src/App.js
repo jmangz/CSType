@@ -179,20 +179,30 @@ class App extends Component {
   }
 
   render() {
-    const players = [];
-    this.state.players.sort((a, b) => {
-      if (a.score - b.score > 0) {
-        return -1;
-      } else if (a.score - b.score < 0) {
-        return 1;
-      }
-      return 0;
-    });
+    // const players = [];
+    // this.state.players.sort((a, b) => {
+    //   if (a.score - b.score > 0) {
+    //     return -1;
+    //   } else if (a.score - b.score < 0) {
+    //     return 1;
+    //   }
+    //   return 0;
+    // });
+    //
+    // for (let i = 0; i < this.state.players.length && i < 5; i += 1) {
+    //   const { name, score, _id } = this.state.players[i];
+    //   players.push(<li key={_id}>{name} Score: {score}</li>);
+    // }
 
-    for (let i = 0; i < this.state.players.length && i < 5; i += 1) {
-      const { name, score, _id } = this.state.players[i];
-      players.push(<li key={_id}>{name} Score: {score}</li>);
-    }
+    const currentPlayers = this.state.players.slice().sort((a, b) => b.score - a.score);
+    const players = currentPlayers.slice(0, 5).map((el) => {
+      const {
+        _id,
+        name,
+        score,
+      } = el;
+      return (<li key={_id}>{name} Score: {score}</li>);
+    });
 
     return (
       <div className="App">
