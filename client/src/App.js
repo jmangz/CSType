@@ -34,6 +34,7 @@ class App extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.checkWord = this.checkWord.bind(this);
     this.keyPress = this.keyPress.bind(this);
+    this.alert = this.alert.bind(this);
   }
 
   componentDidMount() {
