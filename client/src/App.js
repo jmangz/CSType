@@ -22,8 +22,8 @@ class App extends Component {
       submit: true,
     };
     this.baseState = this.state;
-    this.happy = new Audio('./src/pickup.wav');
-    this.sad = new Audio('./src/sad.mp3');
+    this.happy = new Audio('./client/src/pickup.wav');
+    this.sad = new Audio('./client/src/sad.mp3');
     this.interval = null;
     this.handleClick = this.handleClick.bind(this);
     this.getWords = this.getWords.bind(this);
@@ -157,14 +157,7 @@ class App extends Component {
   checkWord(input) {
     if (this.state.active === input) {
       this.newWord();
-      const playPromise = this.happy.play();
-      if (playPromise !== undefined) {
-        playPromise.then((res) => {
-          console.log(res);
-        }).catch((err) => {
-          console.log(err);
-        });
-      }
+      this.happy.play();
       const newStreak = this.state.streak + 1;
       const newScore = this.state.score + 1;
       this.setState({
