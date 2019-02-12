@@ -217,6 +217,7 @@ class App extends Component {
               onKeyDown={this.keyPress}
               onChange={this.handleChange}
               autoFocus
+              autoComplete="nope"
             />
           </div> : null
         }
