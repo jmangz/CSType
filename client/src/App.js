@@ -3,6 +3,9 @@ import axios from 'axios';
 import './App.css';
 import Board from './Board';
 
+import happy from './pickup.wav';
+import sad from './sad.mp3';
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -22,8 +25,8 @@ class App extends Component {
       submit: true,
     };
     this.baseState = this.state;
-    this.happy = new Audio('pickup.wav');
-    this.sad = new Audio('sad.mp3');
+    this.happy = new Audio(happy);
+    this.sad = new Audio(sad);
     this.interval = null;
     this.handleClick = this.handleClick.bind(this);
     this.getWords = this.getWords.bind(this);
