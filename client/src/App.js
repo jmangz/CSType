@@ -144,10 +144,10 @@ class App extends Component {
     }
   }
 
-  async checkWord(input) {
+  checkWord(input) {
     if (this.state.active === input) {
       this.newWord();
-      await this.happy.play();
+      this.happy.play();
       const newStreak = this.state.streak + 1;
       const newScore = this.state.score + 1;
       this.setState({
@@ -156,7 +156,7 @@ class App extends Component {
         streak: newStreak,
       });
     } else {
-      await this.sad.play();
+      this.sad.play();
       this.setState({
         streak: 0,
       });
