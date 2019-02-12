@@ -158,7 +158,7 @@ class App extends Component {
   checkWord(input) {
     if (this.state.active === input) {
       this.newWord();
-      // this.happy.play();
+      this.happy.play();
       this.alert();
       const newStreak = this.state.streak + 1;
       const newScore = this.state.score + 1;
