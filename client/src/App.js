@@ -161,7 +161,9 @@ class App extends Component {
       if (playPromise !== undefined) {
         playPromise.then((res) => {
           console.log(res);
-        }).catch(err => console.log(err));
+        }).catch((err) => {
+          console.log(err);
+        });
       }
       const newStreak = this.state.streak + 1;
       const newScore = this.state.score + 1;
