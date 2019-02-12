@@ -3,6 +3,8 @@ import axios from 'axios';
 import './App.css';
 import Board from './Board';
 
+import happy from './pickup.wav';
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -22,7 +24,7 @@ class App extends Component {
       submit: true,
     };
     this.baseState = this.state;
-    this.happy = new Audio('./src/pickup.wav');
+    this.happy = new Audio(happy);
     this.sad = new Audio('./client/src/sad.mp3');
     this.interval = null;
     this.handleClick = this.handleClick.bind(this);
@@ -155,7 +157,7 @@ class App extends Component {
   checkWord(input) {
     if (this.state.active === input) {
       this.newWord();
-      // this.happy.play();
+      this.happy.play();
       this.alert();
       const newStreak = this.state.streak + 1;
       const newScore = this.state.score + 1;
