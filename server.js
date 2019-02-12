@@ -17,7 +17,6 @@ app.use(express.static(path.join(__dirname, 'client', 'dist')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// app.use(express.static('../build'));
 
 app.post('/api', leaderboardController.addPlayer);
 
@@ -32,5 +31,3 @@ app.get('*', (req, res) => {
 });
 
 app.listen(PORT, () => console.log(`Listening on PORT: ${PORT}`));
-
-// module.exports = app;
