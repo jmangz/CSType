@@ -22,7 +22,7 @@ class App extends Component {
       submit: true,
     };
     this.baseState = this.state;
-    this.happy = new Audio('./client/src/pickup.wav');
+    this.happy = new Audio('./src/pickup.wav');
     this.sad = new Audio('./client/src/sad.mp3');
     this.interval = null;
     this.handleClick = this.handleClick.bind(this);
