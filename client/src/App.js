@@ -230,6 +230,7 @@ class App extends Component {
               onChange={this.handleChange}
               autoFocus
               autoComplete="nope"
+              name="random"
             />
           </div> : null
         }
