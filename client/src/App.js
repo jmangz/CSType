@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import './App.css';
 import Board from './Board';
+import './App.css';
 
 import happy from './pickup.wav';
 import sad from './sad.mp3';
